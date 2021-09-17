@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      :root {
+        --warnaputih: #ffffff;
+        --warnatokped: #07830f;
+        --warnatokpedgelap: #05617e;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100vh;
+      }
+      .bg-image {
+        background-image: url("https://igracias.telkomuniversity.ac.id/styles/201706/images/BACKGROUND1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--warnaputih);
+        padding: 0px 20px;
+        color: white;
+        line-height: 25px;
+        height: 7vh;
+        color: var(--warnatokped);
+      }
+      .header-left {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+      .header-left h2 {
+        padding: 0 12px;
+      }
+      .search-input {
+        height: 3vh;
+        width: 60vw;
+        border-radius: 4px;
+        border: 1px solid var(--warnatokped);
+      }
+      .header-right {
+        text-align: center;
+      }
+      .header-right a {
+        color: var(--warnatokped);
+        padding: 12px 20px;
+        margin: 0 5px;
+        font-size: 14px;
+        border-radius: 10px;
+        border: 1px solid var(--warnatokped);
+        text-decoration: none;
+        transition: 0.4s;
+        opacity: 0.7;
+        font-weight: 800;
+      }
+      .header-right a:hover {
+        opacity: 1;
+        background: var(--warnatokped);
+        color: var(--warnaputih);
+      }
+      .footer {
+        background-color: var(--warnaputih);
+        color: var(--warnatokped);
+        text-align: center;
+        vertical-align: center;
+        line-height: 30px;
+      }
+      .divider {
+        margin: 20px;
+        border-top: 1px solid white;
+        height: 2.5px;
+        width: 80%;
+      }
+      .catalog {
+        background-color: lightcoral;
+        margin: 0 10vw;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: row;
+      }
+      .catalog-filter {
+        background-color: lightblue;
+        width: 20%;
+        padding: 10px 20px;
+      }
+      .catalog-produk {
+        background-color: lightgreen;
+        width: 80%;
+        padding: 10px 20px;
+        /* background-color: paleturquoise; */
+      }
+      .catalog-filter-category {
+        padding-left: 20px;
+        margin: 10px 0;
+      }
+      .catalog-filter-category-child {
+        margin: 5px 0;
+        padding-left: 20px;
+      }
+      .card {
+        width: 225px;
+        height: 350px;
+        border-radius: 10px;
+        border: 1px solid rgb(167, 162, 162);
+        box-shadow: 5px 6px 5px rgb(167, 163, 163);
+        transition: 0.5s;
+      }
+      .card:hover {
+        box-shadow: 5px 6px 5px lightblue;
+      }
+
+      .card img {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        width: 225px;
+        height: 225px;
+      }
+
+      .card-container {
+        padding: 10px;
+      }
+
+      .card-container-sell {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .card-container h4 {
+        padding: 0;
+        margin: 0;
+      }
+
+      .iconstar {
+        width: 30px;
+        height: 30px;
+      }
+      .grid-container {
+        display: grid;
+        grid-gap: 30px 30px;
+        grid-template-columns: auto auto auto auto auto;
+        padding: 10px;
+      }
+
+      .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        /* border: 1px solid rgba(0, 0, 0, 0.8); */
+        /* padding: 20px; */
+        /* font-size: 30px; */
+        /* text-align: center; */
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tokopedia Clone</title>
+  </head>
+  <body>
+    <!-- header -->
+    <div class="header">
+      <div class="header-left">
+        <h2>Tokopedia</h2>
+        <input class="search-input" />
+      </div>
+      <div class="header-right">
+        <a class="login" href="#home">Login</a>
+        <a class="signup" href="#home">Signup</a>
+      </div>
+    </div>
+    <!-- body untuk catalog -->
+    <div class="catalog">
+      <div class="catalog-filter">
+        <h3>Filter</h3>
+        <div class="catalog-filter-category">
+          <div>Jenis Toko</div>
+          <div class="catalog-filter-category-child">
+            <div>
+              <input type="checkbox" />
+              <label>Official Store</label>
+            </div>
+            <div>
+              <input type="checkbox" />
+              <label>Power Merchant</label>
+            </div>
+          </div>
+        </div>
+        <div class="catalog-filter-category">
+          <div>Lokasi</div>
+          <div class="catalog-filter-category-child">
+            <div>
+              <input type="checkbox" />
+              <label>Jakarta</label>
+            </div>
+            <div>
+              <input type="checkbox" />
+              <label>Bandung</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="catalog-produk">
+        <h3>Produk</h3>
+        <div class="grid-container">
+          <div class="grid-item">
+            <div class="card">
+              <img
+                src="https://images.tokopedia.net/img/cache/200-square/VqbcmM/2021/4/5/78a61723-fbbd-4905-975e-4b85a295cfa9.jpg"
+                alt="image_1"
+              />
+              <div class="card-container">
+                <h4>Meja Belajar</h4>
+                <p>Rp. 200.000</p>
+                <div class="card-container-sell">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="iconstar"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      />
+                    </svg>
+                  </div>
+                  <div>4.6/5.0</div>
+                  <div>Terjual 1000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item">
+            <div class="card">
+              <img
+                src="https://images.tokopedia.net/img/cache/200-square/VqbcmM/2021/4/5/78a61723-fbbd-4905-975e-4b85a295cfa9.jpg"
+                alt="image_1"
+              />
+              <div class="card-container">
+                <h4>Meja Belajar</h4>
+                <p>Rp. 200.000</p>
+                <div class="card-container-sell">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="iconstar"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      />
+                    </svg>
+                  </div>
+                  <div>4.6/5.0</div>
+                  <div>Terjual 1000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item">
+            <div class="card">
+              <img
+                src="https://images.tokopedia.net/img/cache/200-square/VqbcmM/2021/4/5/78a61723-fbbd-4905-975e-4b85a295cfa9.jpg"
+                alt="image_1"
+              />
+              <div class="card-container">
+                <h4>Meja Belajar</h4>
+                <p>Rp. 200.000</p>
+                <div class="card-container-sell">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="iconstar"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      />
+                    </svg>
+                  </div>
+                  <div>4.6/5.0</div>
+                  <div>Terjual 1000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item">
+            <div class="card">
+              <img
+                src="https://images.tokopedia.net/img/cache/200-square/VqbcmM/2021/4/5/78a61723-fbbd-4905-975e-4b85a295cfa9.jpg"
+                alt="image_1"
+              />
+              <div class="card-container">
+                <h4>Meja Belajar</h4>
+                <p>Rp. 200.000</p>
+                <div class="card-container-sell">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="iconstar"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      />
+                    </svg>
+                  </div>
+                  <div>4.6/5.0</div>
+                  <div>Terjual 1000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item">
+            <div class="card">
+              <img
+                src="https://images.tokopedia.net/img/cache/200-square/VqbcmM/2021/4/5/78a61723-fbbd-4905-975e-4b85a295cfa9.jpg"
+                alt="image_1"
+              />
+              <div class="card-container">
+                <h4>Meja Belajar</h4>
+                <p>Rp. 200.000</p>
+                <div class="card-container-sell">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="iconstar"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      />
+                    </svg>
+                  </div>
+                  <div>4.6/5.0</div>
+                  <div>Terjual 1000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item">
+            <div class="card">
+              <img
+                src="https://images.tokopedia.net/img/cache/200-square/VqbcmM/2021/4/5/78a61723-fbbd-4905-975e-4b85a295cfa9.jpg"
+                alt="image_1"
+              />
+              <div class="card-container">
+                <h4>Meja Belajar</h4>
+                <p>Rp. 200.000</p>
+                <div class="card-container-sell">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="iconstar"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      />
+                    </svg>
+                  </div>
+                  <div>4.6/5.0</div>
+                  <div>Terjual 1000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item">
+            <div class="card">
+              <img
+                src="https://images.tokopedia.net/img/cache/200-square/VqbcmM/2021/4/5/78a61723-fbbd-4905-975e-4b85a295cfa9.jpg"
+                alt="image_1"
+              />
+              <div class="card-container">
+                <h4>Meja Belajar</h4>
+                <p>Rp. 200.000</p>
+                <div class="card-container-sell">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="iconstar"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      />
+                    </svg>
+                  </div>
+                  <div>4.6/5.0</div>
+                  <div>Terjual 1000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item">
+            <div class="card">
+              <img
+                src="https://images.tokopedia.net/img/cache/200-square/VqbcmM/2021/4/5/78a61723-fbbd-4905-975e-4b85a295cfa9.jpg"
+                alt="image_1"
+              />
+              <div class="card-container">
+                <h4>Meja Belajar</h4>
+                <p>Rp. 200.000</p>
+                <div class="card-container-sell">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="iconstar"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      />
+                    </svg>
+                  </div>
+                  <div>4.6/5.0</div>
+                  <div>Terjual 1000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item">
+            <div class="card">
+              <img
+                src="https://images.tokopedia.net/img/cache/200-square/VqbcmM/2021/4/5/78a61723-fbbd-4905-975e-4b85a295cfa9.jpg"
+                alt="image_1"
+              />
+              <div class="card-container">
+                <h4>Meja Belajar</h4>
+                <p>Rp. 200.000</p>
+                <div class="card-container-sell">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="iconstar"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      />
+                    </svg>
+                  </div>
+                  <div>4.6/5.0</div>
+                  <div>Terjual 1000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item">
+            <div class="card">
+              <img
+                src="https://images.tokopedia.net/img/cache/200-square/VqbcmM/2021/4/5/78a61723-fbbd-4905-975e-4b85a295cfa9.jpg"
+                alt="image_1"
+              />
+              <div class="card-container">
+                <h4>Meja Belajar</h4>
+                <p>Rp. 200.000</p>
+                <div class="card-container-sell">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="iconstar"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      />
+                    </svg>
+                  </div>
+                  <div>4.6/5.0</div>
+                  <div>Terjual 1000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid-item">
+            <div class="card">
+              <img
+                src="https://images.tokopedia.net/img/cache/200-square/VqbcmM/2021/4/5/78a61723-fbbd-4905-975e-4b85a295cfa9.jpg"
+                alt="image_1"
+              />
+              <div class="card-container">
+                <h4>Meja Belajar</h4>
+                <p>Rp. 200.000</p>
+                <div class="card-container-sell">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="iconstar"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      />
+                    </svg>
+                  </div>
+                  <div>4.6/5.0</div>
+                  <div>Terjual 1000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

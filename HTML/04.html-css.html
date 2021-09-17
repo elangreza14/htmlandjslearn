@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100vh;
+        width: 100vw;
+        background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/5a27cb25-33a9-4bcc-b441-95fefabcbd37/1001c11d-58cb-4e1a-b8f7-abc9b12c2cca/ID-en-20210823-popsignuptwoweeks-perspective_alpha_website_small.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+      }
+      .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-color: transparent;
+        padding: 0 30px;
+        height: 12vh;
+        opacity: 1;
+      }
+
+      .header-left {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 150%;
+      }
+
+      .header-left img {
+        display: flex;
+        opacity: 5;
+        width: 10vw;
+        height: 8vh;
+        padding: 5px 20px;
+      }
+
+      .header-right {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 20px;
+        color: white;
+        opacity: 1;
+        transition: 0.5s;
+      }
+
+      .backdrop {
+        position: relative;
+        z-index: 1;
+      }
+
+      .gs {
+        width: 100vw;
+        position: absolute;
+        top:22vh;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 0px 0px;
+      }
+      .header-right button {
+          /* height: 30px; */
+          margin: 0 10px;
+          padding: 10px 25px;
+          border-radius: 5px;
+          background-color: #e50914;
+          border: 1px solid #e50914;
+          color: white;
+      }
+       .gs button {
+          height: 100%;
+          /* margin: 0 10px; */
+          padding: 10px 25px;
+          background-color: #e50914;
+          border: 1px solid #e50914;
+          color: white;
+      }
+      .form-control {
+          height: 50px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+      }
+      .form-control input {
+          height: 45px;
+          padding: 0 15px;
+          width: 250px;
+          margin: 0;
+      }
+      @media only screen and (max-width: 620px) {
+        /* coding for small screen here */
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Netflix</title>
+  </head>
+  <body>
+    <!-- header -->
+    <div class="header">
+      <div class="header-left">
+        <img
+          src="https://o.remove.bg/downloads/ce35fe22-c119-4fc4-b1e5-f6d6a61ebd63/kisspng-vector-graphics-logo-netflix-image-television-5ba1de79bb8db2.5813758715373349057682-removebg-preview.png"
+          alt="Netflix"
+          width="200"
+          height="100"
+        />
+      </div>
+      <div class="header-right">
+        <button type="submit">English</button>
+        <button type="submit">Sign in</button>
+      </div>
+    </div>
+
+    <div class="backdrop">
+        <div class="gs">
+            <h1>Unlimited movies, TV shows, and more.</h1>
+            <h3>Watch anywhere. Cancel anytime.</h3>
+            <h4>Ready to watch? Enter your email to create or restart your membership.</h4>
+                <form action="" class="form-action-gs">
+                <div class="form-control">
+                    <!-- <label for="email">Email</label> -->
+                        <input type="email" class="email" placeholder="Alamat Email"> </input>
+                        <button type="submit">Get Started</button>
+            </div>
+            </form>
+
+        </div> 
+    </div> 
+  </body>
+</html>

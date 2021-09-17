@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      :root {
+        --warnaigracias: #a91110;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100vh;
+      }
+      .bg-image {
+        background-image: url("https://igracias.telkomuniversity.ac.id/styles/201706/images/BACKGROUND1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--warnaigracias);
+        padding: 0px 20px;
+        color: white;
+        line-height: 25px;
+        height: 5vh;
+      }
+      .header-left {
+        display: flex;
+        flex-direction: row;
+      }
+      .header-left h2 {
+        padding: 0 12px;
+      }
+      .header-left h4 {
+        padding: 0 12px;
+      }
+      .header-right {
+        text-align: center;
+      }
+      .header-right a {
+        padding: 12px;
+        font-size: 14px;
+        border-radius: 4px;
+        color: white;
+        text-decoration: none;
+        transition: 0.4s;
+        opacity: 0.7;
+      }
+      .header-right a:hover {
+        opacity: 1;
+        border-radius: 4px;
+        background: white;
+        color: var(--warnaigracias);
+      }
+      .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 30px;
+        background-color: var(--warnaigracias);
+        color: white;
+        text-align: center;
+        vertical-align: center;
+        line-height: 30px;
+      }
+      .login-form {
+        height: 400px;
+        opacity: 0.95;
+        width: 500px;
+        background-color: var(--warnaigracias);
+        position: absolute;
+        bottom: 20vh;
+        right: 0vh;
+        z-index: 10;
+        padding: 20px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .backspace {
+        height: 95vh;
+        position: relative;
+        z-index: 5;
+      }
+      .form-control {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 400px;
+        margin: 10px 0;
+      }
+      .form-control input {
+        height: 30px;
+        width: 250px;
+        border-radius: 5px;
+        border: 1px solid white;
+      }
+      .form-control label {
+        height: 30px;
+        width: 10px;
+      }
+      .form-login button {
+        margin: 10px 0;
+        height: 40px;
+        width: 100%;
+        border: 1px solid white;
+        background: var(--warnaigracias);
+        color: white;
+        font-weight: 800;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.4s;
+        opacity: 0.6;
+      }
+
+      .form-login button:hover {
+        border: 1px solid white;
+        color: var(--warnaigracias);
+        background: white;
+        opacity: 1;
+      }
+      .devider {
+        margin: 20px;
+        border-top: 1px solid white;
+        height: 2.5px;
+        width: 80%;
+      }
+      .forget-pass {
+        text-decoration: none;
+        color: white;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>IGracias Clone</title>
+  </head>
+  <body>
+    <!-- header -->
+    <div class="header">
+      <div class="header-left">
+        <h2>Igracias</h2>
+        <h4>ISO 20000</h4>
+      </div>
+      <div class="header-right">
+        <a class="login" href="#home">Login</a>
+        <a class="signup" href="#home">Signup</a>
+      </div>
+    </div>
+    <!-- background image -->
+    <div class="bg-image">
+      <!-- login form -->
+      <div class="backspace">
+        <div class="login-form">
+          <h3>Login Now</h3>
+          <p>Single Sign On Login</p>
+          <form action="" class="form-login">
+            <div class="form-control">
+              <label for="email">Email</label>
+              <input type="email" />
+            </div>
+            <div class="form-control">
+              <label for="password">Password</label>
+              <input type="password" />
+            </div>
+            <button class="btn-submit">Login</button>
+          </form>
+          <div class="devider" />
+          <br />
+          <a href="forget-pass" class="forget-pass">Forget Password</a>
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
+    <div class="footer">IGracias Clone @ 2021</div>
+  </body>
+</html>
