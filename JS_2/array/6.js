@@ -1,5 +1,5 @@
 function start() {
-  // Array Concat fungsinya mengabungkan array dua array
+  // Array CONCAT fungsinya mengabungkan array dua array
   const kegiatan = [
     {
       name: "beberes bengkel",

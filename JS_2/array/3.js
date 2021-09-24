@@ -1,3 +1,5 @@
+// experimental
+
 function start() {
   // Array At fungsinya mencari index yang ada dalam aray
   const kegiatan = [

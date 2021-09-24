@@ -1,5 +1,5 @@
 function start() {
-  // Array At fungsinya menghilangkan
+  // Array POP fungsinya menghilangkan
   // index yang paling terakhir
   const kegiatan = [
     {
@@ -14,7 +14,7 @@ function start() {
   });
   console.log("panjang dari array", kegiatan.length); // 1 => 2
   console.log(kegiatan);
-  kegiatan.pop();
+  kegiatan.pop(); // MENGHILANGKAN YANG TERAKHIR
   console.log(kegiatan);
 }
 

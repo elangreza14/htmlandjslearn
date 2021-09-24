@@ -1,5 +1,5 @@
 function start() {
-  // Array PUSH fungsinya menambahkan property dalam aray
+  // Array PUSH fungsinya menambahkan property dalam areay
   const kegiatan = [
     {
       name: "beberes bengkel",

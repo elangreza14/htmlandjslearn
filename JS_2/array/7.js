@@ -1,5 +1,5 @@
 function start() {
-  // Array Find fungsinya mencari suatu value dalam array
+  // Array FIND fungsinya mencari suatu value dalam array
 
   const kegiatan2 = [
     {
@@ -15,9 +15,7 @@ function start() {
       name: "ngerjain mobil",
     },
   ];
-  const result2 = kegiatan2.find(
-    (x) => x.name == "ngerjain mobil" && x.title == 3
-  );
+  const result2 = kegiatan2.find((x) => x.name == "beberes kamar");
   console.log(result2);
 }
 

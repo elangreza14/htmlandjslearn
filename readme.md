@@ -18,11 +18,11 @@ array
 - &check; Array concat
 - &check; Array find
 - &check; Array filter
-- &cross; Array findIndex
-- &cross; Array includes
-- &cross; Array join
-- &cross; Array reduce
-- &cross; Array map
+- &check; Array findIndex
+- &check; Array includes
+- &check; Array join
+- &check; Array map // important
+- &check; Array reduce // important
 
 iterator
 

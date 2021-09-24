@@ -1,6 +1,5 @@
 function start() {
-  // Array Filter fungsinya memfilter suatu kondisi value dalam array
-
+  // FILTER array untuk mencari suatu array
   const kegiatan2 = [
     {
       title: 1,
@@ -15,8 +14,7 @@ function start() {
       name: "ngerjain mobil",
     },
   ];
-  // const result2 = kegiatan2.filter((x) => x.name == "ngerjain mobil");
-  // console.log(result2);
+
   const result2 = kegiatan2.filter((x, index) => index > 1);
   console.log(result2);
 }
