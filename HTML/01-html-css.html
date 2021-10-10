@@ -160,7 +160,11 @@
         <div class="login-form">
           <h3>Login Now</h3>
           <p>Single Sign On Login</p>
-          <form action="" class="form-login">
+          <form
+            onsubmit="return validateForm(e)"
+            name="igracias-form"
+            class="form-login"
+          >
             <div class="form-control">
               <label for="email">Email</label>
               <input type="email" />
@@ -180,4 +184,11 @@
     <!-- footer -->
     <div class="footer">IGracias Clone @ 2021</div>
   </body>
+  <script src="./vanilla.js">
+    const validateForm = (e) => {
+      e.preventDefault()
+      let x = document.forms["igracias-form"]
+      console.log(x)
+    }
+  </script>
 </html>

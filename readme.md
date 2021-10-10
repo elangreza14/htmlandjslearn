@@ -26,7 +26,7 @@ array
 
 iterator
 
-- &cross; introduction
-- &cross; Array map
-- &cross; Array foreach
+- &check; introduction
+- &check; Array map
+- &check; Array foreach
 - &cross; object foreach
