@@ -1,14 +1,31 @@
 import "./App.css";
 import { Accordion } from "./components";
-import { FaBeer } from "react-icons/fa";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import axios from "axios";
 
 // useState
 function App() {
   const [auth, setAuth] = useState({
-    name: "Muhammad Reza Elang",
+    name: "kondisi awal",
     login: true,
   });
+  const [result, setResult] = useState([]);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/users") // 404
+      .then((res) => {
+        console.log(res);
+        setResult(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(true);
+      });
+  }, []);
+
+  console.log(error);
 
   const authLoginLogout = useCallback(() => {
     if (auth.login === true) {
@@ -19,7 +36,7 @@ function App() {
       setAuth((previousValue) => {
         return {
           ...previousValue,
-          name: "Muhammad Reza Elang",
+          name: "di trigger oleh useEffect",
           login: !previousValue.login,
         };
       });
@@ -50,22 +67,21 @@ function App() {
             alignItems: "center",
           }}
         >
-          {/* dua state yang berbeda state yang pertama */}
-          <Accordion header="Lorem Ipsum">
-            <p className="App-p">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum
-            </p>
-          </Accordion>
-          {/* dua state yang berbeda state yang kedua*/}
-          <Accordion header="Jangan Lupa minum air putih">
-            <FaBeer />
-          </Accordion>
+          {error === true ? (
+            <div>Error Server</div>
+          ) : result.length === 0 ? (
+            <div>Loading</div>
+          ) : (
+            result?.map((data, index) => {
+              return (
+                <Accordion header={data.name} key={index}>
+                  <p className="App-p">{data.phone}</p>
+                  <p className="App-p">{data.website}</p>
+                  <p className="App-p">{data.username}</p>
+                </Accordion>
+              );
+            })
+          )}
         </div>
       </header>
     </div>

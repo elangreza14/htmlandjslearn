@@ -1,4 +1,8 @@
-import React, { useState, useCallback } from "react";
+import React, {
+  useState,
+  useCallback,
+  // useEffect
+} from "react";
 import { FaChevronRight, FaChevronDown } from "react-icons/fa";
 
 const Accordion = (props) => {
@@ -15,6 +19,13 @@ const Accordion = (props) => {
   const openCloseAccordion = useCallback(() => {
     setOpen((old) => !old);
   }, []);
+
+  // useEffect(() => {
+  //   let timer1 = setTimeout(() => setOpen(true), 3 * 1000);
+  //   return () => {
+  //     clearTimeout(timer1);
+  //   };
+  // }, []);
 
   return (
     <div style={{ width: 700, padding: 15 }}>
