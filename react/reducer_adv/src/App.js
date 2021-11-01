@@ -1,70 +1,76 @@
-import { useReducer } from "react";
+import React, { useMemo, useReducer } from "react";
+//useReducer Advance
 import "./App.css";
-
-const initialState = {
-  products: [
-    { name: "indomie", qty: 5 },
-    { name: "kopi", qty: 3 },
-  ],
-  checkout: [],
-};
-
-// state is callback state
-// action is function / rules
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "ADD_TO_CART":
-      return {
-        ...state,
-        checkout:
-          state.checkout.findIndex((x) => x.name === action.stuff) === -1
-            ? [...state.checkout, { qty: 1, name: action.stuff }]
-            : state.checkout.map((x) => {
-                if (x.name === action.stuff) {
-                  return { ...x, qty: x.qty + 1 };
-                } else {
-                  return x;
-                }
-              }),
-        products: state.products.map((x) => {
-          if (x.name === action.stuff) {
-            return { ...x, qty: x.qty - 1 };
-          } else {
-            return x;
-          }
-        }),
-      };
-    case "REMOVE_FROM_CART":
-      return state;
-    default:
-      return state;
-  }
-};
+import { initialStateProduct, productReducer } from "./reducer/productReducer";
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(productReducer, initialStateProduct);
+
+  const totalQty = useMemo(() => {
+    return {
+      totalProduct: state.products.reduce((previousValue, currentValue) => {
+        return previousValue + currentValue.qty;
+      }, 0),
+      totalCart: state.checkout.reduce((previousValue, currentValue) => {
+        return previousValue + currentValue.qty;
+      }, 0),
+    };
+  }, [state.checkout, state.products]);
+
   return (
     <div className="App">
       <header className="App-header">
-        {/* <div>{JSON.stringify(state)}</div> */}
-        <div style={{ margin: 10 }} />
-        <h3>Product</h3>
-        <div style={{ width: 300 }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            margin: "10px 50px",
+          }}
+        >
+          <h3>Product ({totalQty.totalProduct})</h3>
+          <h3>Checkout ({totalQty.totalCart})</h3>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
           {state.products.map((product, index) => {
             return (
-              <div key={index}>
-                {product.name} -
+              <div key={index} style={{ width: 300, margin: 10 }}>
+                <div>
+                  <img
+                    src={product.link}
+                    alt={product.link}
+                    style={{ width: 200, height: 200 }}
+                  />
+                </div>
+                <div>{product.name}</div>
                 <button
-                  // TODO implement REMOVE_FROM_CART RULES
-                  onClick={() => dispatch({ type: "REMOVE_FROM_CART" })}
+                  style={{ width: 30, height: 30 }}
+                  onClick={() =>
+                    dispatch({
+                      type: "REMOVE_FROM_CART",
+                      stuff: product.name,
+                    })
+                  }
+                  disabled={state.checkout.findIndex(
+                    (x) => x.name === product.name
+                  )}
                 >
                   -
                 </button>
                 {product.qty}{" "}
                 {product.qty > 0 ? (
                   <button
+                    style={{ width: 30, height: 30 }}
                     onClick={() =>
-                      dispatch({ type: "ADD_TO_CART", stuff: product.name })
+                      dispatch({
+                        type: "ADD_TO_CART",
+                        stuff: product.name,
+                        link: product.link,
+                      })
                     }
                   >
                     +
@@ -74,17 +80,21 @@ const App = () => {
             );
           })}
         </div>
-        <div style={{ margin: 10 }} />
-        <h3>Checkout</h3>
-        <div style={{ display: "flex", flexDirection: "row", color: "white" }}>
+
+        {/* <h3>Checkout</h3>
+        <div style={{ display: "flex", flexDirection: "row", margin: 20 }}>
           {state.checkout.map((stuff, index) => {
-            return (
-              <div key={index}>
-                {stuff.name} - {stuff.qty}
-              </div>
-            );
+            if (stuff.qty > 0) {
+              return (
+                <div key={index} style={{ width: 300, margin: 10 }}>
+                  {stuff.name} - {stuff.qty}
+                </div>
+              );
+            } else {
+              return null;
+            }
           })}
-        </div>
+        </div> */}
       </header>
     </div>
   );
